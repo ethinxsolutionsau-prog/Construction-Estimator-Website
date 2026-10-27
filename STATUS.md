@@ -1,21 +1,25 @@
-# Delivery status — 27 October 2026
+# Live deployment status — 27 October 2026
 
-Completed: a portable ETHINX Solutions static homepage focused on Construction Estimation Extraction. Intended root domain: ethinx.solutions. Confirmed contact supplied by Troy: troy@ethinx.solutions.
+**Live website:** https://ethinx.solutions/  
+**Source:** https://github.com/ethinxsolutionsau-prog/Construction-Estimator-Website  
+**Enquiry contact:** troy@ethinx.solutions
 
-Included: HTML, CSS, optional client-side enquiry drafting, SVG/PNG favicon, touch icon, social preview, sitemap, robots file, plain-file GitHub Pages marker and optional asset-only Cloudflare Workers configuration. No framework, backend, payment facility, tracking, proprietary runtime or managed-hosting dependency.
+## Completed
 
-Verified locally in Chromium: 320, 390, 768, 1440 and 1920-pixel layouts without horizontal page overflow; direct mailto CTA recipients/subjects; required-field and email validation; historical and pilot email drafts; no network request from draft generation; copy feedback/fallback; no browser script errors or external assets; consistent FAQ structured data; file opening and subdirectory asset paths; core page and direct CTAs without JavaScript.
+The v2 static homepage is deployed through GitHub-connected Cloudflare Pages. Project: `ethinx-construction-landing`; production branch: `main`; build command: `exit 0`; output: `site`; repository root: `/`.
 
-Reviewed visually: desktop hero, phone hero, enquiry section and social preview.
+A hosting-only Worker, `ethinx-construction-homepage`, serves the new homepage and its named public files at the existing root domain. Other paths retain the original Hetzner origin. The website source remains plain HTML, CSS, JavaScript and local assets, without a proprietary runtime or payment integration.
 
-Not completed or claimed: Cloudflare/Netlify/GitHub Pages/Hetzner live deployment, GitHub push, DNS cutover, email inbox delivery, calendar booking, customer meeting or scraper accuracy validation. No existing live homepage or DNS records were changed. The root-domain export would replace the current Shortform homepage if published there; legacy routes require a deliberate retention or migration decision.
+## Verified
 
-Next revenue-relevant step: deploy the website files to Cloudflare Pages, verify the preview, deliberately connect ethinx.solutions, send one controlled enquiry, then use the live root-domain link in the completed five-company outreach.
+The live root returns the requested headline and correctly addressed historical, pilot and completed-project email links. Eight public assets match the repository source exactly. Phone and desktop layouts were checked, and the live historical/pilot email-draft form works without sending or storing an enquiry automatically. No browser script errors were observed.
 
-## Version 2 — conversion amendments
+Five existing Shortform pages retain HTTP 200 and their legacy application identity: `/new`, `/order`, `/question`, `/enterprise` and `/privacy`. Four legacy static assets match their pre-cutover checksums. Dynamically rendered legacy HTML varies between successive requests, so it was not represented as byte-identical.
 
-Applied all nine amendments from Troy's attached brief: stronger hero, executive summary, founder credibility, meeting reassurance, ideal-client qualification, completed-project email CTA, initial-discussion file assurance, exact SEO title/description and preservation of the existing offers/governance language.
+The original apex web DNS, three MX records and SPF record were verified unchanged. The existing API Worker route is unchanged. No DNS or payment facility was modified, and no paid plan was purchased or enabled.
 
-Protected content was compared before/after and remained identical. The original stylesheet is preserved unchanged as the prefix of the amended stylesheet; additions use its established colours, fonts and spacing. The enquiry script and SVG favicon are unchanged. The new mailto subject/body fields and requested section placements passed exact checks. Layout and existing email-draft regression checks passed again at all five viewport widths. No meeting-booking or conversion uplift is claimed.
+## Boundaries and next action
 
-Updated version-2 export archives replace the earlier packages for the next upload. Deployment, GitHub push, root-domain cutover and inbox/meeting verification remain outstanding.
+No email was sent, inbox delivery was not tested, no meeting was booked, and no customer payment or live takeoff-processing validation was performed. This delivery establishes the live sales landing page, not pilot revenue.
+
+Use **https://ethinx.solutions/** in the completed five-company outreach. Website-file changes pushed to `main` deploy through Pages; changes to the hosting router require a separate Worker upload. See [deployment instructions and rollback](DEPLOYMENT.md).

@@ -7,7 +7,21 @@
 
 This is a complete static enquiry landing page. The website is plain HTML, CSS, JavaScript and local images. There is no framework, build process, server-side application, database, proprietary runtime, payment integration or Manus hosting dependency. All public website files are in `site/`.
 
-The export has not been deployed. No DNS records, Cloudflare routes, live homepage or existing repository have been changed by this handover.
+The v2 website is now deployed and verified at **https://ethinx.solutions/**. The original apex web DNS, email DNS and existing API route remain unchanged.
+
+## Current live setup
+
+The GitHub-connected Pages project is `ethinx-construction-landing`, using production branch `main`, build command `exit 0`, output directory `site` and repository root `/`. Changes to website files on `main` trigger Pages deployments.
+
+The existing apex DNS still points to the original Hetzner origin. Worker `ethinx-construction-homepage`, on route `ethinx.solutions/*`, serves only the homepage and its ten explicitly listed public paths from Pages. Other URLs retain the original origin, including `/new`, `/order`, `/question`, `/enterprise`, `/privacy` and the legacy `/_next/` assets. The separate API-subdomain route is untouched.
+
+The hosting-only source is [`deployment/root-router.js`](deployment/root-router.js). It does not alter the portable website files. New public paths require an allowlist update; router-source changes require a separate Worker upload and are not automatically applied by a Pages build.
+
+**Do not replace the apex DNS with a Pages CNAME while retaining the legacy routes.** The split routing above deliberately preserves the original origin. The full-site migration instructions later in this guide are alternatives, not outstanding launch steps.
+
+To restore the previous homepage, remove only route `ethinx.solutions/*` assigned to `ethinx-construction-homepage`. Leave the original API route, DNS records, Pages project and source repository intact. The unchanged DNS origin then serves the homepage again.
+
+Verified live: the requested headline and CTAs, eight exact source-matched public assets, phone/desktop layout and local email drafting. Five retained legacy pages return their original HTTP status and application identity; four legacy static assets retain exact pre-cutover checksums. Dynamic legacy HTML is not compared byte-for-byte because it changes between requests. No email, payment or customer form submission was performed.
 
 ## Files
 
@@ -71,9 +85,9 @@ npx wrangler pages deploy site --project-name ethinx-construction-landing --bran
 
 This uploads the directory, not a ZIP. It creates/updates a deployment in your Cloudflare account; run it only when you intend to publish. Wrangler is a deployment tool, **not a website runtime dependency**.
 
-## Connect ethinx.solutions safely
+## Alternative: full-site apex migration
 
-**The existing root domain currently serves an ETHINX Shortform website. Moving its root to this export will replace that homepage. The old `/new`, `/order`, `/question`, `/enterprise` and `/privacy` routes are not included in this static site and will not continue automatically.**
+**This is not the current live configuration. Repointing the entire apex to Pages would replace the original Hetzner origin. The old `/new`, `/order`, `/question`, `/enterprise` and `/privacy` routes are not included in the static site and would not continue automatically.**
 
 Before a production cutover:
 
@@ -85,7 +99,7 @@ Before a production cutover:
 6. Wait for the Pages custom domain to show active. Verify HTTPS, the homepage, icons, both email CTAs and any retained legacy routes. A Cloudflare custom domain must be associated in Pages—not just manually pointed at `*.pages.dev` in DNS.
 7. Keep the previous origin and recorded settings for rollback. Revert only the changed web-routing configuration if needed; Cloudflare domain/certificate activation may take time when switching targets again.
 
-No domain connection or live replacement has been performed. The page is prepared for the apex URL, not a new product subdomain.
+These full-site DNS migration steps were not performed for the current launch. The live homepage uses the selective routing described above; no construction subdomain was created.
 
 ## Portability: the same website files on other hosts
 
