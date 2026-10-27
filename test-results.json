@@ -1,0 +1,42 @@
+{
+  "type": "Local Chromium tests; no hosting or email submission",
+  "viewports": [
+    {
+      "width": 320,
+      "height": 800,
+      "no_page_overflow": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "no_page_overflow": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "no_page_overflow": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "no_page_overflow": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "no_page_overflow": true
+    }
+  ],
+  "checks": [
+    "Required fields and invalid email rejected",
+    "Both enquiry intents build correct mailto drafts",
+    "Draft generation triggers no network request",
+    "Copy action or manual-copy fallback gives feedback",
+    "No localStorage use",
+    "No external assets or browser script errors",
+    "FAQ structured data matches visible content",
+    "Same files work under /construction/ with relative assets",
+    "Opens directly from disk",
+    "Core page, FAQs and direct email CTAs work without JavaScript"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "version": "v2",
+  "changes": "All nine requested conversion amendments applied",
+  "protected_selectors_unchanged": [
+    ".ce-hero-side",
+    ".ce-hero-note",
+    ".ce-deliverable-list",
+    "#offer",
+    ".ce-process-list",
+    ".ce-limits",
+    ".ce-faq-list",
+    ".ce-pilot-details",
+    ".ce-pilot-caution",
+    ".ce-contact-notes",
+    "script[type=\"application/ld+json\"]"
+  ],
+  "app_js_unchanged": true,
+  "favicon_svg_unchanged": true,
+  "title": "Construction Quantity Takeoff Validation | ETHINX Solutions",
+  "description": "Validate one completed construction project before changing your estimating process. Human-reviewed quantity takeoff comparison, historical back-testing and estimator workflow evaluation.",
+  "completed_project_mailto_subject": "Completed Project Discussion",
+  "completed_project_body_fields": [
+    "Company:",
+    "Trade:",
+    "Project Type:",
+    "Approximate Drawing Count:",
+    "Preferred Meeting Time:"
+  ],
+  "no_deployment": true
+}
